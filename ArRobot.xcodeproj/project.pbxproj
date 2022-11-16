@@ -13,6 +13,10 @@
 		CB08ECA52917BA6E000A2A23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB08ECA32917BA6E000A2A23 /* Main.storyboard */; };
 		CB08ECA72917BA6F000A2A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB08ECA62917BA6F000A2A23 /* Assets.xcassets */; };
 		CB08ECAA2917BA6F000A2A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB08ECA82917BA6F000A2A23 /* LaunchScreen.storyboard */; };
+		CB08ECB12917BCD1000A2A23 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CB08ECB02917BCD1000A2A23 /* robot.usdz */; };
+		CB08ECD6291FE99C000A2A23 /* toy.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CB08ECD5291FE99C000A2A23 /* toy.usdz */; };
+		CB21DE9329213E2D00A28711 /* floor.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CB21DE9229213E2D00A28711 /* floor.usdz */; };
+		CBF2D2B62923D3B100F5051C /* merah.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CBF2D2B52923D3B100F5051C /* merah.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		CB08ECA42917BA6E000A2A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB08ECA62917BA6F000A2A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB08ECA92917BA6F000A2A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CB08ECB02917BCD1000A2A23 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
+		CB08ECD5291FE99C000A2A23 /* toy.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy.usdz; sourceTree = "<group>"; };
+		CB21DE9229213E2D00A28711 /* floor.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = floor.usdz; sourceTree = "<group>"; };
+		CBF2D2B52923D3B100F5051C /* merah.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = merah.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,10 @@
 		CB08EC9C2917BA6E000A2A23 /* ArRobot */ = {
 			isa = PBXGroup;
 			children = (
+				CB08ECB02917BCD1000A2A23 /* robot.usdz */,
+				CB21DE9229213E2D00A28711 /* floor.usdz */,
+				CB08ECD5291FE99C000A2A23 /* toy.usdz */,
+				CBF2D2B52923D3B100F5051C /* merah.usdz */,
 				CB08EC9D2917BA6E000A2A23 /* AppDelegate.swift */,
 				CB08EC9F2917BA6E000A2A23 /* ViewController.swift */,
 				CB08ECA12917BA6E000A2A23 /* Experience.rcproject */,
@@ -123,9 +135,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB08ECD6291FE99C000A2A23 /* toy.usdz in Resources */,
+				CB08ECB12917BCD1000A2A23 /* robot.usdz in Resources */,
 				CB08ECAA2917BA6F000A2A23 /* LaunchScreen.storyboard in Resources */,
 				CB08ECA72917BA6F000A2A23 /* Assets.xcassets in Resources */,
 				CB08ECA52917BA6E000A2A23 /* Main.storyboard in Resources */,
+				CBF2D2B62923D3B100F5051C /* merah.usdz in Resources */,
+				CB21DE9329213E2D00A28711 /* floor.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +301,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4M5F5S23L2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -314,6 +331,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4M5F5S23L2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
