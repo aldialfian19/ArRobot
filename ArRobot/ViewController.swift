@@ -32,6 +32,16 @@ class ViewController: UIViewController {
     var floorEntityc2: Entity?
     var floorEntityc3: Entity?
     
+    var a1pos: SIMD3<Float> = simd_float3(x: 0, y: 0, z: 0)
+    var a2pos: SIMD3<Float> = simd_float3(x: 0.2, y: 0, z: 0)
+    var a3pos: SIMD3<Float> = simd_float3(x: 0.4, y: 0, z: 0)
+    var b1pos: SIMD3<Float> = simd_float3(x: 0, y: 0, z: 0.2)
+    var b2pos: SIMD3<Float> = simd_float3(x: 0.2, y: 0, z: 0.2)
+    var b3pos: SIMD3<Float> = simd_float3(x: 0.4, y: 0, z: 0.2)
+    var c1pos: SIMD3<Float> = simd_float3(x: 0, y: 0, z: 0.4)
+    var c2pos: SIMD3<Float> = simd_float3(x: 0.2, y: 0, z: 0.4)
+    var c3pos: SIMD3<Float> = simd_float3(x: 0.4, y: 0, z: 0.4)
+    
     
     var tileSelected: SIMD3<Float>?
 
@@ -104,15 +114,15 @@ class ViewController: UIViewController {
             placeObject(object: toyEntity!, position: worldPos + simd_float3 (x: 0.2, y: 0, z: 0))
             placeObject(object: startEntity!, position: worldPos)
             
-            placeObject(object: floorEntitya1!, position: worldPos)
-            placeObject(object: floorEntitya2!, position: (secondPos)!)
-            placeObject(object: floorEntitya3!, position: worldPos + simd_float3 (x: 0.4, y: 0, z: 0))
-            placeObject(object: floorEntityb1!, position: worldPos + simd_float3 (x: 0.0, y: 0, z: 0.2))
-            placeObject(object: floorEntityb2!, position: worldPos + simd_float3 (x: 0.2, y: 0, z: 0.2))
-            placeObject(object: floorEntityb3!, position: worldPos + simd_float3 (x: 0.4, y: 0, z: 0.2))
-            placeObject(object: floorEntityc1!, position: worldPos + simd_float3 (x: 0.0, y: 0, z: 0.4))
-            placeObject(object: floorEntityc2!, position: worldPos + simd_float3 (x: 0.2, y: 0, z: 0.4))
-            placeObject(object: floorEntityc3!, position: worldPos + simd_float3 (x: 0.4, y: 0, z: 0.4))
+            placeObject(object: floorEntitya1!, position: worldPos + a1pos)
+            placeObject(object: floorEntitya2!, position: worldPos + a2pos)
+            placeObject(object: floorEntitya3!, position: worldPos + a3pos)
+            placeObject(object: floorEntityb1!, position: worldPos + b1pos)
+            placeObject(object: floorEntityb2!, position: worldPos + b2pos)
+            placeObject(object: floorEntityb3!, position: worldPos + b3pos)
+            placeObject(object: floorEntityc1!, position: worldPos + c1pos)
+            placeObject(object: floorEntityc2!, position: worldPos + c2pos)
+            placeObject(object: floorEntityc3!, position: worldPos + c3pos)
             
             // Move Object
             move(direction: "")
@@ -164,11 +174,11 @@ class ViewController: UIViewController {
             
             case "forward":
             if robotPos == startEntity?.position {
-                robotEntity?.position = (startEntity?.position)! + simd_float3(x: 0, y: 0, z: 0.2)
+                robotEntity?.position = (startEntity?.position)! + b1pos
             
 
             }else if robotPos == secondPos {
-                robotEntity?.position = (startEntity?.position)! + simd_float3(x: 0, y: 0, z: 0.4)
+                robotEntity?.position = (startEntity?.position)! + c1pos
             }else {
                 print("no move")
             }
