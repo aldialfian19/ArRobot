@@ -15,13 +15,23 @@ class ViewController: UIViewController {
     var robotEntity: Entity?
     var toyEntity: Entity?
     var startEntity: Entity?
-    var firstPos: SIMD3<Float>?
-    var secondPos: SIMD3<Float>?
-    var currentPos: SIMD3<Float>?
-
+    
     var moveToLocation: Transform = Transform()
     var moveDuration: Double = 3.00
     
+
+    var currentPos: SIMD3<Float>?
+    
+    var a1position: SIMD3<Float>?
+    var a2position: SIMD3<Float>?
+    var a3position: SIMD3<Float>?
+    var b1position: SIMD3<Float>?
+    var b2position: SIMD3<Float>?
+    var b3position: SIMD3<Float>?
+    var c1position: SIMD3<Float>?
+    var c2position: SIMD3<Float>?
+    var c3position: SIMD3<Float>?
+
     var floorEntitya1: Entity?
     var floorEntitya2: Entity?
     var floorEntitya3: Entity?
@@ -43,7 +53,6 @@ class ViewController: UIViewController {
     var c3pos: SIMD3<Float> = simd_float3(x: 0.4, y: 0, z: 0.4)
     
     
-    var tileSelected: SIMD3<Float>?
 
     
     override func viewDidLoad() {
@@ -105,8 +114,15 @@ class ViewController: UIViewController {
 //            print("world\(worldPos)")
             
 //            print("\(a2pos)")
-            
-            secondPos = (worldPos + simd_float3 (x: 0.2, y: 0, z: 0))
+            a1position = (startEntity?.position)!
+            a2position = ((startEntity?.position)! + a2pos)
+            a3position = ((startEntity?.position)! + a3pos)
+            b1position = ((startEntity?.position)! + b1pos)
+            b2position = ((startEntity?.position)! + b2pos)
+            b3position = ((startEntity?.position)! + b3pos)
+            c1position = ((startEntity?.position)! + c1pos)
+            c2position = ((startEntity?.position)! + c2pos)
+            c3position = ((startEntity?.position)! + c3pos)
             
             
             // Place object
@@ -129,9 +145,6 @@ class ViewController: UIViewController {
             
             toyAnimation()
             
-            firstPos = worldPos
-            
-            secondPos = (startEntity?.position)! + simd_float3(x: 0, y: 0, z: 0.2)
         }
     }
     
@@ -165,7 +178,6 @@ class ViewController: UIViewController {
     
     func move (direction: String) {
         
-//        currentPos = self.robotEntity!.position + (tileSelected)!
         let robotPos = robotEntity?.position
     
         
@@ -173,12 +185,18 @@ class ViewController: UIViewController {
             
             
             case "forward":
-            if robotPos == startEntity?.position {
-                robotEntity?.position = (startEntity?.position)! + b1pos
             
+            if robotPos == startEntity?.position {
+                moveToLocation.translation = (robotEntity?.transform.translation)! + simd_float3 (x: 0, y: 0, z: 20)
+                robotEntity?.move(to: moveToLocation, relativeTo: robotEntity, duration: moveDuration)
+                robotEntity?.position = b1position!
+                walkAnimation(moveDuration: moveDuration)
 
-            }else if robotPos == secondPos {
-                robotEntity?.position = (startEntity?.position)! + c1pos
+            }else if robotPos == b1position {
+                moveToLocation.translation = (robotEntity?.transform.translation)! + simd_float3 (x: 0, y: 0, z: 20)
+                robotEntity?.move(to: moveToLocation, relativeTo: robotEntity, duration: moveDuration)
+                robotEntity?.position = c1position!
+                walkAnimation(moveDuration: moveDuration)
             }else {
                 print("no move")
             }
@@ -198,17 +216,39 @@ class ViewController: UIViewController {
             
             case "left":
             //create sudut berputar
-            let rotateAngle = simd_quatf(angle: GLKMathDegreesToRadians(90), axis: SIMD3(x: 0, y: 1, z: 0))
-            robotEntity?.setOrientation(rotateAngle, relativeTo: robotEntity)
-            
             if robotPos == startEntity?.position {
-                robotEntity?.position = (startEntity?.position)! + simd_float3(x: 0.2, y: 0, z: 0)
+                let rotateAngle = simd_quatf(angle: GLKMathDegreesToRadians(90), axis: SIMD3(x: 0, y: 1, z: 0))
+                robotEntity?.setOrientation(rotateAngle, relativeTo: robotEntity)
                 
-            }else if robotPos == secondPos {
-                robotEntity?.position = (startEntity?.position)! + simd_float3(x: 0, y: 0, z: 0.4)
+                moveToLocation.translation = (robotEntity?.transform.translation)! + simd_float3 (x: 0, y: 0, z: 20)
+                robotEntity?.move(to: moveToLocation, relativeTo: robotEntity, duration: moveDuration)
+                robotEntity?.position = a2position!
+                walkAnimation(moveDuration: moveDuration)
+
+            }else if robotPos == b1position {
+                let rotateAngle = simd_quatf(angle: GLKMathDegreesToRadians(90), axis: SIMD3(x: 0, y: 1, z: 0))
+                robotEntity?.setOrientation(rotateAngle, relativeTo: robotEntity)
+                
+                moveToLocation.translation = (robotEntity?.transform.translation)! + simd_float3 (x: 0, y: 0, z: 20)
+                robotEntity?.move(to: moveToLocation, relativeTo: robotEntity, duration: moveDuration)
+                robotEntity?.position = b2position!
+                walkAnimation(moveDuration: moveDuration)
+                
+            }else if robotPos == c1position {
+                let rotateAngle = simd_quatf(angle: GLKMathDegreesToRadians(90), axis: SIMD3(x: 0, y: 1, z: 0))
+                robotEntity?.setOrientation(rotateAngle, relativeTo: robotEntity)
+                
+                moveToLocation.translation = (robotEntity?.transform.translation)! + simd_float3 (x: 0, y: 0, z: 20)
+                robotEntity?.move(to: moveToLocation, relativeTo: robotEntity, duration: moveDuration)
+                robotEntity?.position = c2position!
+                walkAnimation(moveDuration: moveDuration)
             }else {
                 print("no move")
             }
+            
+//            let rotateAngle = simd_quatf(angle: GLKMathDegreesToRadians(90), axis: SIMD3(x: 0, y: 1, z: 0))
+//            robotEntity?.setOrientation(rotateAngle, relativeTo: robotEntity)
+//            walkAnimation(moveDuration: moveDuration)
             
             case "right":
             //create sudut berputar
@@ -237,9 +277,6 @@ class ViewController: UIViewController {
     func toyAnimation(){
         toyEntity?.availableAnimations.forEach{
             toyEntity?.playAnimation($0.repeat())
-        }
-        robotEntity?.availableAnimations.forEach{
-            robotEntity?.playAnimation($0.repeat())
         }
     }
     
@@ -271,7 +308,7 @@ class ViewController: UIViewController {
         mundur.frame = CGRect(x: 90, y: 300, width: 80, height: 50)
         mundur.backgroundColor = .blue
         mundur.setTitle("mundur", for: .normal)
-        mundur.addTarget(self, action: #selector(mundurAction), for: .allEvents)
+        mundur.addTarget(self, action: #selector(mundurAction), for: .touchUpInside)
         
         let kiri = UIButton(type: .system)
         kiri.frame = CGRect(x: 180, y: 300, width: 80, height: 50)
@@ -283,7 +320,7 @@ class ViewController: UIViewController {
         kanan.frame = CGRect(x: 270, y: 300, width: 80, height: 50)
         kanan.backgroundColor = .blue
         kanan.setTitle("kanan", for: .normal)
-        kanan.addTarget(self, action: #selector(kananAction), for: .allEvents)
+        kanan.addTarget(self, action: #selector(kananAction), for: .touchUpInside)
         
         
         
@@ -300,9 +337,7 @@ class ViewController: UIViewController {
         print("maju")
     }
     @objc func mundurAction(sender: UIButton!) {
-        move(direction: "back")
-        checkPoint()
-        print("mundur")
+        move(direction: "mundur")
         
     }
     @objc func kiriAction(sender: UIButton!) {
